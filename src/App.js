@@ -1,12 +1,13 @@
 import React from "react";
-import Blog from "./composants/Blog";
+// import Blog from "./composants/Blog";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Compteur from "./Compteur/Compteur";
 
 function App() {
   return (
     <div className="App">
-      <Blog />
+      <Compteur />
     </div>
   );
 }

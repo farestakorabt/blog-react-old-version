@@ -1,0 +1,18 @@
+.btnIncr {
+    width: 150px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(172, 174, 167);
+
+}
+
+.btnIncr:hover,
+.btnIncr:active {
+    background-color: #eee;
+}

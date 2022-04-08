@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 import "./NvPost.css";
 
 class NvPost extends Component {
@@ -7,6 +7,24 @@ class NvPost extends Component {
     title: "",
     content: "",
     author: "Hugo",
+  };
+
+  postArticle = () => {
+    const nvPost = {
+      title: this.state.title,
+      body: this.state.content,
+      author: this.state.author,
+    };
+    axios
+      .post("https://jsonplaceholder.typicode.com/posts", nvPost)
+      .then((response) => {
+        console.log(response);
+      });
+    this.setState({
+      title: "",
+      content: "",
+      author: "",
+    });
   };
 
   render() {
@@ -18,26 +36,30 @@ class NvPost extends Component {
           className="form-control"
           type="text"
           value={this.state.title}
-          onChange={(event) => this.setState({ title: event.target.value })}
+          onChange={(e) => this.setState({ title: e.target.value })}
         />
+
         <label>Contenu</label>
         <textarea
           className="form-control"
           rows="4"
           value={this.state.content}
-          onChange={(event) => this.setState({ content: event.target.value })}
+          onChange={(e) => this.setState({ content: e.target.value })}
         />
+
         <label>Auteur</label>
         <select
           className="form-control"
           value={this.state.author}
-          onChange={(event) => this.setState({ author: event.target.value })}
+          onChange={(e) => this.setState({ author: e.target.value })}
         >
           <option value="Hugo">Hugo</option>
           <option value="Juliette">Juliette</option>
           <option value="John">John</option>
         </select>
-        <button className="btn btn-success my-3">Ajouter un Article</button>
+        <button className="btn btn-success my-3" onClick={this.postArticle}>
+          Ajouter un Article
+        </button>
       </div>
     );
   }
